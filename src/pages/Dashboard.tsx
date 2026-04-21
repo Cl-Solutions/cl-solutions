@@ -89,15 +89,15 @@ export default function Dashboard() {
   )
 
   return (
-    <div className="p-4 md:p-6 max-w-6xl mx-auto space-y-5">
+    <div className="p-4 md:p-6 lg:p-8 max-w-7xl mx-auto space-y-5">
       {/* Header */}
       <div>
         <h1 className="text-xl md:text-2xl font-semibold text-gray-900">Guten Morgen 👋</h1>
         <p className="text-sm text-gray-400 mt-0.5">{format(new Date(),'EEEE, d. MMMM yyyy',{locale:de})}</p>
       </div>
 
-      {/* Stat tiles – 2 cols mobile, 3 tablet, 6 desktop */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      {/* Stat tiles */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
         {[
           { label:'Offene Leads',    value:leads.length,        icon:Users,       color:'text-cyan-600',   bg:'bg-cyan-50',   to:'/leads' },
           { label:'In Progress',     value:inProgress,          icon:TrendingUp,  color:'text-blue-600',   bg:'bg-blue-50',   to:'/tasks' },
@@ -117,7 +117,7 @@ export default function Dashboard() {
       </div>
 
       {/* Main 2-col grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
         {/* Open Leads */}
         <div className="bg-white rounded-xl border border-gray-100 p-4">
           <div className="flex items-center justify-between mb-3">
@@ -157,7 +157,7 @@ export default function Dashboard() {
                 <div key={task.id} className="flex items-start gap-3 px-2 py-2 rounded-lg">
                   <div className={`mt-1.5 w-2 h-2 rounded-full shrink-0 ${task.status==='in_progress'?'bg-blue-500':task.status==='waiting'?'bg-orange-400':'bg-gray-300'}`} />
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-800 truncate">{task.titel}</p>
+                    <p className="text-sm text-gray-800 truncate">{task.title}</p>
                     <p className="text-xs text-gray-400">{TASK_STATUS_LABELS[task.status]}</p>
                   </div>
                 </div>

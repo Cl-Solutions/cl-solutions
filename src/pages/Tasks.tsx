@@ -21,12 +21,12 @@ const PRIORITIES: { key: TaskPriority; label: string; icon: React.ReactNode; col
 const DEFAULT_ASSIGNED = ['Berkay', 'Mario', 'Beide']
 
 interface TaskForm {
-  titel: string; notiz: string; category: string
+  title: string; notiz: string; category: string
   status: TaskStatus; priority: TaskPriority
   due_date: string; assigned_to: string
 }
 const emptyForm = (cat = ''): TaskForm => ({
-  titel: '', notiz: '', category: cat,
+  title: '', notiz: '', category: cat,
   status: 'todo', priority: 'mittel', due_date: '', assigned_to: '',
 })
 
@@ -71,10 +71,10 @@ export default function Tasks() {
   }
 
   async function createTask() {
-    if (!form.titel.trim()) return
+    if (!form.title.trim()) return
     setSaving(true)
     await supabase.from('tasks').insert({
-      titel: form.titel.trim(),
+      title: form.title.trim(),
       notiz: form.notiz || null,
       category: form.category || activeKat,
       status: form.status,
@@ -186,9 +186,9 @@ export default function Tasks() {
       </div>
 
       {/* DESKTOP: 4-column kanban */}
-      <div className="hidden md:grid md:grid-cols-4 gap-4 flex-1 overflow-hidden p-5">
+      <div className="hidden md:grid md:grid-cols-4 gap-4 flex-1 overflow-hidden p-4 lg:p-5">
         {STATUSES.map(({ key, label, bg, dot }) => (
-          <div key={key} className={`flex flex-col rounded-xl border ${bg} overflow-hidden`}>
+          <div key={key} className={`flex flex-col rounded-xl border ${bg} overflow-hidden min-h-0`}>
             <div className="flex items-center justify-between px-3 py-2.5 shrink-0">
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${dot}`} />
@@ -268,8 +268,8 @@ export default function Tasks() {
             <Field label="Titel *">
               <input
                 autoFocus
-                value={form.titel}
-                onChange={e => setForm({ ...form, titel: e.target.value })}
+                value={form.title}
+                onChange={e => setForm({ ...form, title: e.target.value })}
                 onKeyDown={e => { if (e.key === 'Enter') createTask() }}
                 placeholder="Was muss erledigt werden?"
                 className={INPUT}
@@ -315,7 +315,7 @@ export default function Tasks() {
           </div>
           <div className="flex gap-3 mt-5">
             <button onClick={() => setShowTaskModal(false)} className={BTN_SECONDARY}>Abbrechen</button>
-            <button onClick={createTask} disabled={!form.titel.trim() || saving} className={BTN_PRIMARY}>
+            <button onClick={createTask} disabled={!form.title.trim() || saving} className={BTN_PRIMARY}>
               {saving ? 'Speichern...' : 'Task anlegen'}
             </button>
           </div>
@@ -392,7 +392,7 @@ function TaskCard({ task, isExpanded, onToggle, onStatusChange, onDelete, status
       <div className="flex items-start gap-2">
         <div className="flex-1 min-w-0">
           <p className={`text-sm text-gray-800 leading-snug ${task.status === 'done' ? 'line-through text-gray-400' : ''}`}>
-            {task.titel}
+            {task.title}
           </p>
           <div className="flex flex-wrap items-center gap-2 mt-1.5">
             {prio && task.priority !== 'mittel' && (

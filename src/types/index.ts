@@ -31,7 +31,7 @@ export interface TaskKategorie {
   sort_order: number; erstellt_am: string
 }
 export interface Task {
-  id: string; titel: string; notiz: string | null
+  id: string; title: string; notiz: string | null
   category: string; status: TaskStatus
   priority: TaskPriority; due_date: string | null
   assigned_to: string | null; created_at: string; updated_at: string

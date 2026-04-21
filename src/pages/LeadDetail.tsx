@@ -168,7 +168,7 @@ export default function LeadDetail() {
   }
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-4 md:p-6 lg:p-8 max-w-5xl mx-auto">
       {/* Header */}
       <div className="flex items-start justify-between mb-8">
         <div className="flex items-start gap-4">
@@ -218,9 +218,9 @@ export default function LeadDetail() {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-6">
         {/* Left column: Info + Notes */}
-        <div className="col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-5 lg:space-y-6">
 
           {/* Contact Info */}
           <div className="bg-white rounded-xl border border-gray-100 p-5">

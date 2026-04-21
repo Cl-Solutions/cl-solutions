@@ -194,13 +194,13 @@ export default function Finanzen() {
         ))}
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 md:p-6">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
 
         {/* ── TAB: Abos ─────────────────────────────────────── */}
         {tab === 'abos' && (
           <>
             {/* Summary cards */}
-            <div className="grid grid-cols-2 gap-3 mb-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
               <div className="bg-white rounded-xl border border-gray-100 p-4">
                 <p className="text-xs text-gray-400 mb-1">Monatliche Fixkosten</p>
                 <p className="text-2xl font-semibold text-gray-900">{fmt(monatlicheKosten)}</p>
@@ -210,6 +210,16 @@ export default function Finanzen() {
                 <p className="text-xs text-gray-400 mb-1">Jährliche Kosten</p>
                 <p className="text-2xl font-semibold text-gray-900">{fmt(jaehrlicheKosten)}</p>
                 <p className="text-xs text-gray-400 mt-0.5">hochgerechnet</p>
+              </div>
+              <div className="bg-white rounded-xl border border-gray-100 p-4">
+                <p className="text-xs text-gray-400 mb-1">Aktive Abos</p>
+                <p className="text-2xl font-semibold text-gray-900">{abos.filter(a=>a.status==='aktiv').length}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{abos.filter(a=>a.status==='gekuendigt').length} gekündigt</p>
+              </div>
+              <div className="bg-cyan-50 rounded-xl border border-cyan-100 p-4">
+                <p className="text-xs text-cyan-600 mb-1">Burn Rate / Tag</p>
+                <p className="text-2xl font-semibold text-cyan-700">{fmt(monatlicheKosten / 30)}</p>
+                <p className="text-xs text-cyan-500 mt-0.5">Fixkosten täglich</p>
               </div>
             </div>
 

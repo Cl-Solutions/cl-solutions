@@ -88,7 +88,7 @@ export default function QuickLinks() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-8">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-8">
         {links.length === 0 ? (
           <div className="text-center py-16">
             <p className="text-4xl mb-3">🔗</p>
@@ -98,7 +98,7 @@ export default function QuickLinks() {
           byKategorie.map(({ kat, items }) => (
             <div key={kat}>
               <h2 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">{kat}</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-3">
                 {items.map(link => (
                   <div key={link.id} className="group relative">
                     <a

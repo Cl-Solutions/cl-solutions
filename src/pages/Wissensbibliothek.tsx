@@ -153,7 +153,7 @@ export default function Wissensbibliothek() {
       </div>
 
       {/* Grid */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-6">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 max-w-7xl mx-auto w-full">
         {filtered.length === 0 ? (
           <div className="text-center py-16">
             <p className="text-4xl mb-3">📚</p>
@@ -161,7 +161,7 @@ export default function Wissensbibliothek() {
             <button onClick={() => setShowModal(true)} className="mt-3 text-xs text-cyan-500 underline">Erste Ressource hinzufügen</button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
             {filtered.map(e => {
               const thumb = getThumbnail(e.url, e.plattform, e.thumbnail_url)
               return (
