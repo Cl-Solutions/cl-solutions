@@ -127,8 +127,8 @@ export default function Wissensbibliothek() {
       </div>
 
       {/* Filters */}
-      <div className="bg-white border-b border-gray-100 px-4 md:px-6 py-3 flex items-center gap-3 shrink-0">
-        <div className="relative flex-1 max-w-xs">
+      <div className="bg-white border-b border-gray-100 px-4 md:px-6 py-3 flex flex-col gap-2 shrink-0">
+        <div className="relative w-full">
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             value={search}
@@ -137,12 +137,12 @@ export default function Wissensbibliothek() {
             className="w-full pl-8 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-400"
           />
         </div>
-        <div className="flex gap-1 overflow-x-auto no-scrollbar">
+        <div className="flex flex-wrap gap-1">
           {['alle', ...KATEGORIEN].map(k => (
             <button
               key={k}
               onClick={() => setFilterKat(k)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${
+              className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors ${
                 filterKat === k ? 'bg-cyan-500 text-white' : 'text-gray-500 hover:bg-gray-100'
               }`}
             >

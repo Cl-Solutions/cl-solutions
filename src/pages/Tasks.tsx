@@ -153,14 +153,14 @@ export default function Tasks() {
 
       {/* Category tabs – horizontal scroll */}
       <div className="bg-white border-b border-gray-100 px-4 md:px-6 shrink-0">
-        <div className="flex gap-0.5 overflow-x-auto no-scrollbar py-2">
+        <div className="flex flex-wrap gap-1 py-2">
           {kategorien.map(kat => {
             const openCount = tasks.filter(t => t.category === kat.name && t.status !== 'done').length
             return (
               <button
                 key={kat.id}
                 onClick={() => setActiveKat(kat.name)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm whitespace-nowrap transition-all shrink-0 ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all ${
                   activeKat === kat.name
                     ? 'bg-cyan-500 text-white font-medium'
                     : 'text-gray-500 hover:bg-gray-100'
@@ -178,7 +178,7 @@ export default function Tasks() {
           })}
           <button
             onClick={() => setShowKatModal(true)}
-            className="md:hidden shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:bg-gray-100 border border-dashed border-gray-200 transition-colors"
+            className="md:hidden flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:bg-gray-100 border border-dashed border-gray-200 transition-colors"
           >
             <Plus size={12} /> Kat.
           </button>

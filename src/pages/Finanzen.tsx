@@ -184,12 +184,17 @@ export default function Finanzen() {
       </div>
 
       {/* Tabs */}
-      <div className="bg-white border-b border-gray-100 px-4 md:px-6 flex gap-1 shrink-0">
-        {([['abos','📋 Abos & Kosten'],['transaktionen','💸 Einnahmen & Ausgaben'],['uebersicht','📊 Übersicht']] as [Tab,string][]).map(([t,l]) => (
+      <div className="bg-white border-b border-gray-100 px-4 md:px-6 flex shrink-0">
+        {([
+          ['abos',          '📋 Abos',       '📋 Abos & Kosten'],
+          ['transaktionen', '💸 Finanzen',   '💸 Einnahmen & Ausgaben'],
+          ['uebersicht',    '📊 Übersicht',  '📊 Übersicht'],
+        ] as [Tab, string, string][]).map(([t, mobile, desktop]) => (
           <button key={t} onClick={() => setTab(t)}
-            className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+            className={`px-3 md:px-5 py-3 text-xs md:text-sm font-medium border-b-2 transition-colors ${
               tab===t ? 'border-cyan-500 text-cyan-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
-            {l}
+            <span className="md:hidden">{mobile}</span>
+            <span className="hidden md:inline">{desktop}</span>
           </button>
         ))}
       </div>

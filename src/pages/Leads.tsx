@@ -139,8 +139,8 @@ export default function Leads() {
       </div>
 
       {/* Filters */}
-      <div className="flex gap-3 mb-6">
-        <div className="relative flex-1 max-w-xs">
+      <div className="flex flex-col gap-3 mb-6">
+        <div className="relative w-full">
           <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
@@ -150,7 +150,7 @@ export default function Leads() {
             className="w-full pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-400"
           />
         </div>
-        <div className="flex gap-1 bg-white border border-gray-200 rounded-lg p-1">
+        <div className="flex flex-wrap gap-1 bg-white border border-gray-200 rounded-lg p-1">
           <button
             onClick={() => setFilterStatus('all')}
             className={`px-3 py-1 rounded text-xs font-medium transition-colors ${

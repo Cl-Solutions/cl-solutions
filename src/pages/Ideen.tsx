@@ -106,10 +106,10 @@ export default function Ideen() {
       {/* Status summary + filters */}
       <div className="bg-white border-b border-gray-100 px-4 md:px-6 py-3 shrink-0">
         {/* Status pills */}
-        <div className="flex gap-1.5 overflow-x-auto no-scrollbar mb-2">
+        <div className="flex flex-wrap gap-1.5 mb-2">
           <button
             onClick={() => setFilterStatus('alle')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${filterStatus==='alle' ? 'bg-cyan-500 text-white' : 'text-gray-500 hover:bg-gray-100'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${filterStatus==='alle' ? 'bg-cyan-500 text-white' : 'text-gray-500 hover:bg-gray-100'}`}
           >
             Alle ({ideen.length})
           </button>
@@ -117,19 +117,19 @@ export default function Ideen() {
             <button
               key={s.key}
               onClick={() => setFilterStatus(s.key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${filterStatus===s.key ? 'bg-cyan-500 text-white' : 'text-gray-500 hover:bg-gray-100'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${filterStatus===s.key ? 'bg-cyan-500 text-white' : 'text-gray-500 hover:bg-gray-100'}`}
             >
               {s.label} ({countByStatus(s.key)})
             </button>
           ))}
         </div>
         {/* Category filter */}
-        <div className="flex gap-1.5 overflow-x-auto no-scrollbar">
+        <div className="flex flex-wrap gap-1.5">
           {(['alle', ...KATEGORIEN] as (IdeenKategorie|'alle')[]).map(k => (
             <button
               key={k}
               onClick={() => setFilterKat(k)}
-              className={`px-2.5 py-1 rounded-md text-xs transition-colors whitespace-nowrap ${filterKat===k ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-100'}`}
+              className={`px-2.5 py-1 rounded-md text-xs transition-colors ${filterKat===k ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-100'}`}
             >
               {k === 'alle' ? 'Alle Kategorien' : k}
             </button>

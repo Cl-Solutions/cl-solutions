@@ -174,17 +174,17 @@ export default function Dashboard() {
             <h2 className="text-sm font-semibold text-gray-700">Quick Links</h2>
             <Link to="/links" className="text-xs text-cyan-600 flex items-center gap-1">Alle <ArrowRight size={12} /></Link>
           </div>
-          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+          <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-2">
             {qlinks.map(l => (
               <a
                 key={l.id}
                 href={l.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl hover:bg-gray-50 transition-colors group"
+                className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-gray-50 active:bg-gray-100 transition-colors min-w-0"
               >
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shadow-sm"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-base sm:text-lg shadow-sm shrink-0"
                   style={{ backgroundColor: l.farbe + '15', border: `1px solid ${l.farbe}25` }}
                 >
                   {l.emoji}
@@ -201,14 +201,14 @@ export default function Dashboard() {
         {/* Task overview */}
         <div className="bg-white rounded-xl border border-gray-100 p-4">
           <h2 className="text-sm font-semibold text-gray-700 mb-3">Task-Übersicht</h2>
-          <div className="flex gap-3">
+          <div className="flex gap-2 w-full">
             {[
               { label:'To Do',      count:todo,       color:'bg-gray-200' },
               { label:'Progress',   count:inProgress, color:'bg-blue-400' },
               { label:'Waiting',    count:waiting,    color:'bg-orange-400' },
               { label:'Done',       count:done,       color:'bg-green-400' },
             ].map(({ label, count, color }) => (
-              <div key={label} className="flex-1 text-center">
+              <div key={label} className="flex-1 min-w-0 text-center">
                 <div className="flex items-end justify-center mb-1.5">
                   <div className={`${color} rounded-sm w-full`} style={{ height: Math.max(4, (count/Math.max(tasks.length,1))*48)+'px' }} />
                 </div>
